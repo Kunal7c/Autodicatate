@@ -1,0 +1,13 @@
+# Build output
+autodictate
+
+# Cloned + built dependency (see README "Build") — not committed
+whisper.cpp/
+
+# Downloaded model weights (see models/README.md) — not committed
+models/*.bin
+models/*.onnx
+
+# Misc build/debug artifacts
+*.o
+*.log

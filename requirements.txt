@@ -1,0 +1,27 @@
+# autodictate — system requirements
+#
+# Primary target: Arch Linux / CachyOS (pacman). On other distros, install the
+# equivalent packages. These are the build + runtime dependencies for
+# autodictate. whisper.cpp is cloned and built separately (see README "Build").
+#
+#   pacman -S <package>
+
+# --- Build tools (Arch developer meta-package: gcc/g++, make, cmake, ninja,
+#     pkgconf, …) ---
+base-devel
+
+# --- Audio capture (PipeWire) ---
+pipewire          # libpipewire-0.3 (capture stream)
+wireplumber       # PipeWire session manager (default-input discovery)
+
+# --- Keyboard / synthetic typing (uinput) ---
+libevdev          # libevdev (uinput synthetic keyboard)
+# libudev ships with the systemd base on Arch (no separate package).
+
+# --- Tooling ---
+git               # clone whisper.cpp
+wget              # whisper.cpp model download scripts (curl works too)
+
+# --- Optional: regenerate cue.wav (NOT required to run) ---
+# cue.wav is a Pocket TTS recording of "Hi Kunal, I'm listening."
+# It is committed to the repo; you only need TTS if you want to change it.
